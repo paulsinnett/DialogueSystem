@@ -11,8 +11,14 @@ public class Character : ScriptableObject
     [SerializeField]
     private Sprite image;
 
-    internal void FillPortrait(Image portrait)
+    public void FillPortrait(Image portrait)
     {
         portrait.sprite = image;
+    }
+
+    public string ReplaceName(string text)
+    {
+        string colorText = $"<color=red>{displayName}</color>";
+        return text.Replace(displayName, colorText);
     }
 }

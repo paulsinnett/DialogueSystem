@@ -15,6 +15,9 @@ public class DialogueBox : MonoBehaviour
     [SerializeField]
     private float charactersPerSecond = 20.0f;
 
+    [SerializeField]
+    private Character[] characters;
+
     private Coroutine typing;
 
     private void Awake()
@@ -34,7 +37,7 @@ public class DialogueBox : MonoBehaviour
     {
         dialogue.FillDialoguePortrait(portrait);
         gameObject.SetActive(true);
-        typing = StartCoroutine(dialogue.TypeDialogueContent(textDisplay, charactersPerSecond));
+        typing = StartCoroutine(dialogue.TypeDialogueContent(textDisplay, charactersPerSecond, characters));
     }
 
     public void EndDialogue()

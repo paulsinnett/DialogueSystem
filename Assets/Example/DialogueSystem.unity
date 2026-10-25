@@ -916,7 +916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -419.18, y: 215.69}
+  m_AnchoredPosition: {x: -319.6, y: 113.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &981728375
@@ -995,7 +995,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000020921, y: 0.0000066757}
-  m_SizeDelta: {x: 800, y: 400}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007718781
 MonoBehaviour:
@@ -1049,6 +1049,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueBox
   textDisplay: {fileID: 1427542069}
   portrait: {fileID: 981728375}
+  charactersPerSecond: 20
+  characters:
+  - {fileID: 11400000, guid: a158f0570945e9c4184a29a7d5a3e157, type: 2}
+  - {fileID: 11400000, guid: 72884e08ab5d95649bff78048b427795, type: 2}
 --- !u!1 &1021542959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,7 +1290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sample Text!
+  m_text: 'Sample <color=red>Text</color>!
 
 
 '

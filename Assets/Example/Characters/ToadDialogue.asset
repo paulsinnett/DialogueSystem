@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4cdc40e2bcb974da0b7f4a55e773bd, type: 3}
   m_Name: ToadDialogue
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  character: {fileID: 11400000, guid: 72884e08ab5d95649bff78048b427795, type: 2}
+  speaker: {fileID: 11400000, guid: 72884e08ab5d95649bff78048b427795, type: 2}
   line: 'Thank you Mario!
 
 
