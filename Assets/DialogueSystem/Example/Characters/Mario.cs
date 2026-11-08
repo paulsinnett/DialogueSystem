@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -51,7 +50,8 @@ public class Mario : MonoBehaviour
 
     void Update()
     {
-        body.linearVelocity = new Vector3(moveInput.x, 0.0f, moveInput.y) * moveSpeed;
+        Vector3 direction = new Vector3(moveInput.x, 0.0f, moveInput.y);
+        body.linearVelocity = direction * moveSpeed;
     }
 
     private void OnTriggerEnter(Collider other)

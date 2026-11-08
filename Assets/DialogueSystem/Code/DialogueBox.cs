@@ -20,15 +20,8 @@ public class DialogueBox : MonoBehaviour
     private Coroutine typing;
     private float characterDelay;
 
-    public delegate void PreProcessText(ref string text);
-    public event PreProcessText BeforeDisplay;
-
-    public void Awake()
-    {
-        const float averageWordLength = 5.7f;
-        float charactersPerMinute = wordsPerMinute * averageWordLength;
-        characterDelay = 60.0f / charactersPerMinute;
-    }
+    public delegate void TextProcessor(ref string text);
+    public event TextProcessor PreProcessText;
 
     public void StartDialogue(Dialogue dialogue)
     {
@@ -49,7 +42,7 @@ public class DialogueBox : MonoBehaviour
         {
             StopCoroutine(typing);
             typing = null;
-            textDisplay.maxVisibleCharacters = textDisplay.textInfo.characterCount;
+            DisplayAllText(textDisplay);
         }
     }
 
@@ -58,21 +51,35 @@ public class DialogueBox : MonoBehaviour
         typing = StartCoroutine(TypingRoutine(line));
     }
 
+    private static void DisplayAllText(TMP_Text text)
+    {
+        text.maxVisibleCharacters = text.textInfo.characterCount;
+    }
+
+    private static bool Finished(TMP_Text text)
+    {
+        return text.maxVisibleCharacters == text.textInfo.characterCount;
+    }
+
     private IEnumerator TypingRoutine(string line)
     {
-        BeforeDisplay?.Invoke(ref line);
+        PreProcessText?.Invoke(ref line);
         textDisplay.text = line;
-        int i = 0;
+        textDisplay.maxVisibleCharacters = 0;
         do
         {
-            textDisplay.maxVisibleCharacters = i;
+            textDisplay.maxVisibleCharacters++;
             if (click)
             {
                 click.Play();
             }
+            const float lettersPerWord = 4.79f;
+            const float charactersPerWord = lettersPerWord + 1;
+            float charactersPerMinute = wordsPerMinute * charactersPerWord;
+            characterDelay = 60.0f / charactersPerMinute;
             yield return new WaitForSeconds(characterDelay);
-            i++;
         }
-        while (i < textDisplay.textInfo.characterCount);
+        while (!Finished(textDisplay));
+        typing = null;
     }
 }

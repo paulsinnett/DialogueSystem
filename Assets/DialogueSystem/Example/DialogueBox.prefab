@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueBox
   textDisplay: {fileID: 5507409339644491340}
   portrait: {fileID: 2337201305963347061}
-  wordsPerMinute: 120
+  wordsPerMinute: 150
   click: {fileID: 4783763216726289263}
 --- !u!82 &4783763216726289263
 AudioSource:

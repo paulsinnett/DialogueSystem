@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +11,6 @@ public class Character : ScriptableObject
     [SerializeField]
     private Sprite image;
 
-    [SerializeField]
-    private string color = "red";
-
     public void FillPortrait(Image portrait)
     {
         portrait.sprite = image;
@@ -24,10 +19,5 @@ public class Character : ScriptableObject
     public void Add(Dictionary<string, Character> cast)
     {
         cast[displayName] = this;
-    }
-
-    public string ColorText(string text)
-    {
-        return $"<color={color}>{text}</color>";
     }
 }

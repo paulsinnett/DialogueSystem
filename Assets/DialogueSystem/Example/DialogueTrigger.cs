@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -12,25 +11,24 @@ public class DialogueTrigger : MonoBehaviour
 
     public void OnEnable()
     {
-        dialogueBox.BeforeDisplay += ColorText;
-        dialogueBox.BeforeDisplay += AllCaps;
+        dialogueBox.PreProcessText += ColorText;
     }
 
     public void OnDisable()
     {
-        dialogueBox.BeforeDisplay -= AllCaps;
-        dialogueBox.BeforeDisplay -= ColorText;
+        dialogueBox.PreProcessText -= ColorText;
     }
 
-    private void ColorText(ref string text)
+    private static void ColorText(ref string text)
     {
         string replacements = "Mario|princess";
-        text = Regex.Replace(text, replacements, (word) => $"<color=red>{word}</color>");
-    }
+        text = Regex.Replace(text, replacements, ColorWord);
+        return;
 
-    private void AllCaps(ref string text)
-    {
-        text = text.ToUpper();
+        static string ColorWord(Match word)
+        {
+            return $"<color=red>{word.Value}</color>";
+        }
     }
 
     public void Interact()
