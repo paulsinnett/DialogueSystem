@@ -52,7 +52,7 @@ To clear the dialogue window call the function `EndDialogue`.
 
 ### StartDialogue
 
-```
+```cs
     public void StartDialogue(Dialogue dialogue)
 ```
 
@@ -60,13 +60,13 @@ The `dialogue` parameter is a reference to the `Dialogue` scriptable object you 
 
 ### Text processing
 
-```
+```cs
     public delegate void TextProcessor(ref string text);
     public event TextProcessor PreProcessText;
 ```
 To optionally apply processing to the dialogue text before display, you can subscribe to the `PreProcessText` event on the `DialogueBox` instance. This example code will capitalize the text before it is displayed:
 
-```
+```cs
     public void OnEnable()
     {
         dialogueBox.PreProcessText += CapitalizeText;
