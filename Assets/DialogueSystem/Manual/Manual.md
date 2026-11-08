@@ -4,7 +4,7 @@ This component displays dialogue text one letter at a time. Or you can skip to t
 
 ## Example
 
-You can find the example scene in the `DialogueSystem/Example` folder. It is named `DialogueSystem`. This scene presents to boxes. The red one represents the player and the white one represents an NPC. Use `WASD` to move the player close to the NPC, then press `E` to interact.
+You can find the example scene in the `DialogueSystem/Example` folder. It is named `DialogueSystem`. This scene presents two boxes. The red one represents the player and the white one represents an NPC. Use `WASD` to move the player close to the NPC, then press `E` to interact.
 
 The dialogue window should appear at that point, showing a portrait of the speaking character, and the text will appear one letter at a time with a click sound.
 
@@ -40,7 +40,7 @@ This script should be placed on the object you want to use to display your dialo
 
 You can adjust the speed of the text playback in the `Words Per Minute` slot. The speed is calculated using [the average word length of 4.79 letters per word in English](https://www.norvig.com/mayzner.html), plus 1 for a space. The default is set to 150, which is the sustained typing speed of the [current world record holder](https://fasttypings.com/typing-speed-world-record).
 
-You can provide an option `AudioSource` to play a sound after each character is displayed.
+You can provide an optional `AudioSource` to play a sound after each character is displayed.
 
 You can also provide a text processing function to make changes to the text before rendering. You can use this to make text replacements. In the example code this is used to color the words `Mario` and `princess`.
 
