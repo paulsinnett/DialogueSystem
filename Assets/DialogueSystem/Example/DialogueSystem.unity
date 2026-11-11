@@ -692,8 +692,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mario
   moveSpeed: 5
   body: {fileID: 445415852}
-  move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  interact: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  move: {fileID: -1680190386980627800, guid: 5f0d33cc98a3dd04ca60b74578fb601e, type: 3}
+  interact: {fileID: 1781555164194001046, guid: 5f0d33cc98a3dd04ca60b74578fb601e, type: 3}
 --- !u!54 &445415852
 Rigidbody:
   m_ObjectHideFlags: 0
